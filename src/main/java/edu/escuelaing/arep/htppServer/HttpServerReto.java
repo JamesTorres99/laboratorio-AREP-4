@@ -169,11 +169,10 @@ public class HttpServerReto {
 	private void getStaticResource(String path, PrintWriter out,OutputStream outputStream) {
         Path file = Paths.get(System.getProperty("user.dir")+"/src/main/resources/img" + path);
         if (path.contains("html") || path.contains("js")|| path.contains("ico")) {
-            try (InputStream in = Files.newInputStream(file);
+        	try (InputStream in = Files.newInputStream(file);
                  BufferedReader reader
                          = new BufferedReader(new InputStreamReader(in))) {
-            	
-            	System.out.println(file.toAbsolutePath()+"aquiiiiiiiiiiiiiii");
+        
                 String header = "HTTP/1.1 200 OK\r\n"
                         + "Content-Type: text/html\r\n"
                         + "\r\n";
