@@ -36,7 +36,7 @@ public class NanoSpring {
 	 * @throws IllegalAccessException sin acceso a recursos 
 	 * @throws IOException execption IO
 	 */
-	public void run(String[] args) throws InvocationTargetException, IllegalAccessException, IOException {
+	public void run(String[] args) throws Exception{
 			
 			try {
 				_instance.loadComponents(args);

@@ -48,7 +48,9 @@ public class HttpServerReto {
 	 * @throws IllegalAccessException acceso ilegal
 	 * @throws InvocationTargetException  exception en el target
 	 */
-	public void startServer() throws IOException, InvocationTargetException, IllegalAccessException {
+	public void startServer()  {
+		try {
+
 		ServerSocket serverSocket = null;
 		   
 		try { 
@@ -57,6 +59,7 @@ public class HttpServerReto {
 		      System.err.println("Could not listen on port: 35000.");
 		      System.exit(1);
 		   }
+		try {
 		   boolean running = true;
 		   while (running) {
 		   Socket clientSocket = null;
@@ -109,8 +112,19 @@ public class HttpServerReto {
 		   	in.close(); 
 		    out.close(); 
 		    clientSocket.close();
-		   }
-		    serverSocket.close(); 
+		    }
+		   	}catch (IOException ex) {
+		        Logger.getLogger(HttpServerReto.class.getName()).log(Level.SEVERE, null, ex);
+		    } catch (IllegalAccessException e) {
+		        e.printStackTrace();
+		    } catch (InvocationTargetException e) {
+		        e.printStackTrace();
+		    }
+			serverSocket.close(); 
+			} catch (IOException ex) {
+		    Logger.getLogger(HttpServerReto.class.getName()).log(Level.SEVERE, null, ex);
+		}
+	
 	}
 	
 	/**
