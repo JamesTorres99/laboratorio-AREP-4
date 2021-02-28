@@ -167,7 +167,7 @@ public class HttpServerReto {
 	 * @param outputStream el ooutput 
 	 */
 	private void getStaticResource(String path, PrintWriter out,OutputStream outputStream) {
-        Path file = Paths.get("target/classes/img" + path);
+        Path file = Paths.get(System.getProperty("user.dir")+"/src/main/resources/img" + path);
         if (path.contains("html") || path.contains("js")|| path.contains("ico")) {
             try (InputStream in = Files.newInputStream(file);
                  BufferedReader reader
