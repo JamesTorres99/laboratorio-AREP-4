@@ -181,7 +181,7 @@ public class HttpServerReto {
 	 * @param outputStream el ooutput 
 	 */
 	private void getStaticResource(String path, PrintWriter out,OutputStream outputStream) {
-        Path file = Paths.get(System.getProperty("user.dir")+"/src/main/resources/img" + path);
+        Path file = Paths.get(System.getProperty("user.dir")+"/src/main/resources/Img" + path);
         if (path.contains("html") || path.contains("js")|| path.contains("ico")) {
         	try (InputStream in = Files.newInputStream(file);
                  BufferedReader reader
@@ -201,9 +201,9 @@ public class HttpServerReto {
             }
         }
         else if (path.contains("png")){
-            System.out.println("/src/main/resources/img" + path);
+            System.out.println("/src/main/resources/Img" + path);
             try{
-                BufferedImage image = ImageIO.read(new File(System.getProperty("user.dir")+"/src/main/resources/img/fondo2.png"));
+                BufferedImage image = ImageIO.read(new File(System.getProperty("user.dir")+"/src/main/resources/Img/fondo2.png"));
                 ByteArrayOutputStream ArrBytes = new ByteArrayOutputStream();
                 DataOutputStream out1 = new DataOutputStream(outputStream);
                 ImageIO.write(image, "PNG", ArrBytes);
