@@ -137,6 +137,7 @@ public class HttpServerReto {
 		
 	}
 	
+	
 	/**
 	 * Metodo MostrarImagen muestra la imagen en el servidor
 	 * @param string ruta de la imagen
@@ -165,7 +166,7 @@ public class HttpServerReto {
 	 */
 	private void getStaticResource(String path, PrintWriter out,OutputStream outputStream) {
         Path file = Paths.get("target/classes/img" + path);
-        if (path.contains("html") || path.contains("js")) {
+        if (path.contains("html") || path.contains("js")|| path.contains("ico")) {
             try (InputStream in = Files.newInputStream(file);
                  BufferedReader reader
                          = new BufferedReader(new InputStreamReader(in))) {
