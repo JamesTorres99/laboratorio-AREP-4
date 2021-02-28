@@ -98,8 +98,8 @@ public class RequestLine {
 	    
 	    /**
 	     * 
-	     * @param varname
-	     * @return
+	     * @param varname es la variable
+	     * @return el query
 	     */
 	    public String getValFromQuery(String varname){
 	        return query.get(varname);

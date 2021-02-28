@@ -45,8 +45,8 @@ public class HttpServerReto {
 	/**
 	 * Metodo StarServer que inicializa los sockets e inicia el servidor
 	 * @throws IOException excepcion de la clase ServerSocket
-	 * @throws IllegalAccessException 
-	 * @throws InvocationTargetException 
+	 * @throws IllegalAccessException acceso ilegal
+	 * @throws InvocationTargetException  exception en el target
 	 */
 	public void startServer() throws IOException, InvocationTargetException, IllegalAccessException {
 		ServerSocket serverSocket = null;
@@ -207,7 +207,7 @@ public class HttpServerReto {
 
 	/**
 	 * pagina httml 
-	 * @return html
+	 * @return html retorna html
 	 */
 	private String getDefaultokOutput() {
 		return "HTTP/1.1 200 OK\r\n"
