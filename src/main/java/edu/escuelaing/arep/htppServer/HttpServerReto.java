@@ -157,9 +157,15 @@ public class HttpServerReto {
 	        }
 	}
 	
+	/**
+	 * clase que mezcla la lectura de archivos, js, html, png
+	 * @param path ruta
+	 * @param out la estructura de la pagina
+	 * @param outputStream el ooutput 
+	 */
 	private void getStaticResource(String path, PrintWriter out,OutputStream outputStream) {
         Path file = Paths.get("target/classes/img" + path);
-        if (path.contains("html") || path.contains("js") || path.contains("ico")) {
+        if (path.contains("html") || path.contains("js")) {
             try (InputStream in = Files.newInputStream(file);
                  BufferedReader reader
                          = new BufferedReader(new InputStreamReader(in))) {
@@ -216,6 +222,13 @@ public class HttpServerReto {
 		          "</html>\n"; 
 	}
 	
+	/**
+	 * invokeapp el server
+	 * @param appuri url app
+	 * @param out la estructura
+	 * @throws InvocationTargetException exception de mala invocacion del target 
+	 * @throws IllegalAccessException acceso ilegal a los recursos
+	 */
 	 private void invokeApp(String appuri, PrintWriter out) throws InvocationTargetException, IllegalAccessException {
 
 	        String header = "HTTP/1.1 200 OK\r\n"

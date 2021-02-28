@@ -1,11 +1,14 @@
 package edu.escuelaing.arep.nanoSpring;
 
+import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+
+import edu.escuelaing.arep.htppServer.HttpServerReto;
 
 /**
  * Clase que se encarga de cargar la pagina web usando anotaciones
@@ -26,24 +29,26 @@ public class NanoSpring {
 	}
 
 	
-	public void run(String[] args) {
-		if (_instance.componentLoaded) {
+	/**
+	 * Inicia el servidor y carga los componentes
+	 * @param args los argumentos
+	 * @throws InvocationTargetException invocacion del target erronea
+	 * @throws IllegalAccessException sin acceso a recursos 
+	 * @throws IOException execption IO
+	 */
+	public void run(String[] args) throws InvocationTargetException, IllegalAccessException, IOException {
 			
 			try {
 				_instance.loadComponents(args);
 				_instance.componentLoaded=true;
-				_instance.startServer();
+				HttpServerReto server = new HttpServerReto(_instance);
+		        server.startServer();
 				
 			}catch(ClassNotFoundException ex) {
 				Logger.getLogger(NanoSpring.class.getName()).log(Level.SEVERE, "aqui");
 			}
 		}
 
-	}
-
-	private void startServer() {
-		
-	}
 
 	/**
 	 * Carga los componentes 
@@ -63,7 +68,13 @@ public class NanoSpring {
 		}
 	}
 	
-	
+	/**
+	 * metodo invoke 
+	 * @param path la url 
+	 * @return componente de la ruta
+	 * @throws InvocationTargetException invocacion del target erronea
+	 * @throws IllegalAccessException sin acceso a recursos 
+	 */
 	 public  String invoke(String path) throws InvocationTargetException, IllegalAccessException {
 	        return componentsRoute.get(path).invoke(null).toString();
 	    }

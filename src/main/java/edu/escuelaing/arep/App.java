@@ -8,14 +8,16 @@ import edu.escuelaing.arep.nanoSpring.*;
  */
 public class App 
 {
+		/**
+		 * ejecuta el servidor usando anotaciones
+		 * @param args listado de anotaciones
+		 */
 	    public static void main(String[] args){
 	        String[] args1=new String[1];
 	        args1[0]="edu.escuelaing.arep.nanoSpring.HelloWebService";
 	        try {
 	        NanoSpring nanoSpring= new NanoSpring();
 	        nanoSpring.run(args1);
-	        HttpServerReto server = new HttpServerReto(nanoSpring);
-	        server.startServer();
 	        } catch (Exception e) {
 	            e.printStackTrace();
 	        }

@@ -8,12 +8,12 @@ import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+/**
+ * this class represent the HTTP request line
+ * @author dnielben
+ */
 public class RequestLine {
-	
-	/**
-	 * this class represent the HTTP request line
-	 * @author dnielben
-	 */
+
 	    
 	    private String method;
 	    private String requestURI;
@@ -60,6 +60,9 @@ public class RequestLine {
 	        return HTTPVersion;
 	    }
 	    
+	    /**
+	     * 
+	     */
 	    public String toString(){
 	        return method + " " + requestURI + " " + HTTPVersion + "\n\r" +
 	                getTheuri() + "\n\r" +
@@ -93,6 +96,11 @@ public class RequestLine {
 	        return theQuery;
 	    }
 	    
+	    /**
+	     * 
+	     * @param varname
+	     * @return
+	     */
 	    public String getValFromQuery(String varname){
 	        return query.get(varname);
 	    }
