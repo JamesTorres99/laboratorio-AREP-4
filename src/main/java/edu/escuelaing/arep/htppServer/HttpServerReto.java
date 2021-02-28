@@ -93,6 +93,8 @@ public class HttpServerReto {
 	            RequestLine req = new RequestLine(request.get("requestLine"));
 	            System.out.println("RequestLine: " + req);
 	            if(req != null) {
+	            	
+	            	
 	            	outputLine = getDefaultokOutput();
 	                URI theuri = req.getTheuri();
 	                if (theuri.getPath().startsWith("/Apps")) {
@@ -103,9 +105,9 @@ public class HttpServerReto {
 	                }
 	            }
 		   	}
-		
+		   	
+		   	in.close(); 
 		    out.close(); 
-		    in.close(); 
 		    clientSocket.close();
 		   }
 		    serverSocket.close(); 
