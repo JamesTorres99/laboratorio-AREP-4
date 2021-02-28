@@ -15,7 +15,7 @@ Para este taller desarrolle un prototipo mínimo que demuestre capcidades reflex
 
 Enlace heroku
 
-![Enlace Heroku](https://sleepy-wave-57175.herokuapp.com/index.html)
+[Enlace Heroku](https://sleepy-wave-57175.herokuapp.com/index.html)
 
 
 **Compilar el proyecto con maven**
@@ -51,5 +51,6 @@ prueba pagina 2:
 
 [Enlace Heroku](https://sleepy-wave-57175.herokuapp.com/pagina.html)
 
-prueba imagen 3:
+prueba pagina 3 con script:
+
 [Enlace Heroku](https://sleepy-wave-57175.herokuapp.com/hola.html)
